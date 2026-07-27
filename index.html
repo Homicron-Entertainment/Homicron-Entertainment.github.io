@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0b0b0bar;
+            background-color: #0b0b0b;
             background-image: linear-gradient(rgba(11, 11, 11, 0.85), rgba(11, 11, 11, 0.92)), url('fondo.jpg');
             background-size: cover;
             background-position: center;
@@ -47,11 +47,11 @@
         }
 
         .logo-main {
-            max-width: 320px; /* Logo principal ampliado */
+            max-width: 320px;
             height: auto;
         }
 
-        .lang-btn {
+        .lang-select {
             background-color: rgba(255, 255, 255, 0.1);
             color: #ffffff;
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -59,11 +59,12 @@
             border-radius: 20px;
             cursor: pointer;
             font-size: 14px;
-            transition: background 0.3s;
+            outline: none;
         }
 
-        .lang-btn:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+        .lang-select option {
+            background-color: #1a1a1a;
+            color: #ffffff;
         }
 
         /* Sección de Introducción */
@@ -153,7 +154,7 @@
             padding: 30px 0;
             color: #888;
             font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 2D5, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             margin-top: 20px;
         }
     </style>
@@ -163,17 +164,21 @@
     <!-- Cabecera -->
     <header>
         <img src="logo-homicron.png" alt="Homicron Entertainment" class="logo-main">
-        <button class="lang-btn">Español ▾</button>
+        <!-- Selector funcional de idioma -->
+        <select class="lang-select" onchange="changeLanguage(this.value)">
+            <option value="en" selected>English ▾</option>
+            <option value="es">Español ▾</option>
+        </select>
     </header>
 
     <div class="container">
 
-        <!-- Introducción en Inglés -->
+        <!-- Introducción -->
         <div class="intro-box">
-            <h2>Homicron Entertainment: Passion, Art & Global Precision</h2>
-            <p><strong>What is Homicron?</strong><br>
+            <h2 id="intro-title">Homicron Entertainment: Passion, Art & Global Precision</h2>
+            <p id="intro-desc1"><strong>What is Homicron?</strong><br>
             Homicron Entertainment is a global production and creative agency specialized in developing high-impact cultural and commercial projects. We combine rigorous cinematic aesthetics with a modern artistic vision to bring unique concepts to life in the entertainment industry.</p>
-            <p><strong>What do we do?</strong><br>
+            <p id="intro-desc2"><strong>What do we do?</strong><br>
             Our service offering is divided into three core pillars:</p>
         </div>
 
@@ -184,10 +189,11 @@
                 <img src="logo-visual.png" alt="Visual Studio Logo" class="branch-logo">
             </div>
             <div class="content-box">
-                <p>Creation and audiovisual direction, development of cinematic content and high-end visual pieces with a dark, elegant, and professional aesthetic style.</p>
+                <p id="visual-desc">Creation and audiovisual direction, development of cinematic content and high-end visual pieces with a dark, elegant, and professional aesthetic style.</p>
                 <br>
-                <p><strong>Demo / Links:</strong><br>
-                <a href="https://youtu.be/yMAC5HfJvhs?si=1EjbAzBd4hbsQnpC" target="_blank">https://youtu.be/yMAC5HfJvhs?si=1EjbAzBd4hbsQnpC</a></p>
+                <p><strong>Demos / Showreel:</strong><br>
+                - Wilson Hoyle -- Salay Sacaba 25 Años: <a href="https://youtu.be/yMAc5HfjVhs?si=DitimBRE8kqpAv-i" target="_blank">https://youtu.be/yMAc5HfjVhs?si=DitimBRE8kqpAv-i</a><br>
+                - En la casa de mi Suegra (Cueca): <a href="https://youtu.be/YFwFitzB-lI?si=S4yPCDABHv4W4le4" target="_blank">https://youtu.be/YFwFitzB-lI?si=S4yPCDABHv4W4le4</a></p>
             </div>
         </div>
 
@@ -198,7 +204,7 @@
                 <img src="logo-writing.png" alt="Writing Lab Logo" class="branch-logo">
             </div>
             <div class="content-box">
-                <p>Creation of original musical lyrics, lyrical structuring, and conceptual adaptation oriented toward conveying deep emotions and connecting with the audience.</p>
+                <p id="writing-desc">Creation of original musical lyrics, lyrical structuring, and conceptual adaptation oriented toward conveying deep emotions and connecting with the audience.</p>
             </div>
         </div>
 
@@ -209,14 +215,14 @@
                 <img src="logo-script.png" alt="Script & Docs Logo" class="branch-logo">
             </div>
             <div class="content-box">
-                <p>Drafting, review, and structuring of editorial and cinematic scripts with an impeccable, organized, and coherent narrative approach.</p>
+                <p id="script-desc">Drafting, review, and structuring of editorial and cinematic scripts with an impeccable, organized, and coherent narrative approach.</p>
             </div>
         </div>
 
         <!-- CONTACTO -->
-        <div class="section-title">Contact:</div>
+        <div class="section-title" id="contact-title">Contact:</div>
         <div class="intro-box" style="text-align: left;">
-            <p>Ready to take your project to the next level with logical precision and professional aesthetics?<br><br>
+            <p id="contact-text">Ready to take your project to the next level with logical precision and professional aesthetics?<br><br>
             <strong>Email / Direct Contact:</strong> acercron@gmail.com</p>
         </div>
 
@@ -224,8 +230,35 @@
 
     <!-- Pie de página -->
     <footer>
-        <p>&copy; 2026 Homicron Entertainment. All rights reserved.</p>
+        <p id="footer-text">&copy; 2026 Homicron Entertainment. All rights reserved.</p>
     </footer>
+
+    <!-- Script para el cambio dinámico de idioma -->
+    <script>
+        function changeLanguage(lang) {
+            if (lang === 'es') {
+                document.getElementById('intro-title').innerText = "Homicron Entertainment: Pasión, Arte y Precisión Global";
+                document.getElementById('intro-desc1').innerHTML = "<strong>¿Qué es Homicron?</strong><br>Homicron Entertainment es una productora y agencia creativa global especializada en el desarrollo de proyectos de alto impacto cultural y comercial. Combinamos una estética cinematográfica rigurosa con una visión artística moderna para dar vida a conceptos únicos en la industria del entretenimiento.";
+                document.getElementById('intro-desc2').innerHTML = "<strong>¿Qué hacemos?</strong><br>Nuestra oferta de servicios se divide en tres pilares fundamentales:";
+                document.getElementById('visual-desc').innerText = "Creación y dirección audiovisual, desarrollo de contenido cinematográfico y piezas visuales de alta gama con un estilo estético oscuro, elegante y profesional.";
+                document.getElementById('writing-desc').innerText = "Creación de letras musicales originales, estructuración lírica y adaptación conceptual orientada a transmitir emociones profundas y conectar con la audiencia.";
+                document.getElementById('script-desc').innerText = "Redacción, revisión y estructuración de guiones editoriales y cinematográficos con un enfoque narrativo impecable, organizado y coherente.";
+                document.getElementById('contact-title').innerText = "Contacto:";
+                document.getElementById('contact-text').innerHTML = "¿Listo para llevar tu proyecto al siguiente nivel con precisión lógica y estética profesional?<br><br><strong>Correo / Contacto directo:</strong> acercron@gmail.com";
+                document.getElementById('footer-text').innerHTML = "&copy; 2026 Homicron Entertainment. Todos los derechos reservados.";
+            } else {
+                document.getElementById('intro-title').innerText = "Homicron Entertainment: Passion, Art & Global Precision";
+                document.getElementById('intro-desc1').innerHTML = "<strong>What is Homicron?</strong><br>Homicron Entertainment is a global production and creative agency specialized in developing high-impact cultural and commercial projects. We combine rigorous cinematic aesthetics with a modern artistic vision to bring unique concepts to life in the entertainment industry.";
+                document.getElementById('intro-desc2').innerHTML = "<strong>What do we do?</strong><br>Our service offering is divided into three core pillars:";
+                document.getElementById('visual-desc').innerText = "Creation and audiovisual direction, development of cinematic content and high-end visual pieces with a dark, elegant, and professional aesthetic style.";
+                document.getElementById('writing-desc').innerText = "Creation of original musical lyrics, lyrical structuring, and conceptual adaptation oriented toward conveying deep emotions and connecting with the audience.";
+                document.getElementById('script-desc').innerText = "Drafting, review, and structuring of editorial and cinematic scripts with an impeccable, organized, and coherent narrative approach.";
+                document.getElementById('contact-title').innerText = "Contact:";
+                document.getElementById('contact-text').innerHTML = "Ready to take your project to the next level with logical precision and professional aesthetics?<br><br><strong>Email / Direct Contact:</strong> acercron@gmail.com";
+                document.getElementById('footer-text').innerHTML = "&copy; 2026 Homicron Entertainment. All rights reserved.";
+            }
+        }
+    </script>
 
 </body>
 </html>
