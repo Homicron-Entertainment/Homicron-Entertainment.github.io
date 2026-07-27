@@ -35,7 +35,7 @@
             margin-top: 20px;
         }
 
-        /* Cabecera */
+        /* Cabecera optimizada */
         header {
             width: 100%;
             max-width: 800px;
@@ -44,11 +44,14 @@
             align-items: center;
             padding: 15px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 20px;
         }
 
         .logo-main {
-            max-width: 320px;
+            width: 100%;
+            max-width: 580px;
             height: auto;
+            object-fit: contain;
         }
 
         .lang-select {
@@ -60,6 +63,7 @@
             cursor: pointer;
             font-size: 14px;
             outline: none;
+            white-space: nowrap;
         }
 
         .lang-select option {
@@ -91,17 +95,36 @@
             margin-bottom: 15px;
         }
 
-        /* Títulos de Secciones */
+        /* Encabezado de Secciones con Nombre e Identidad */
+        .section-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
         .section-title {
             color: #ff7700;
             font-size: 1.5rem;
             font-weight: bold;
             letter-spacing: 1.5px;
-            margin-top: 10px;
             text-transform: uppercase;
         }
 
-        /* Tarjetas de Secciones / Pilares */
+        .brand-badge {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            background: rgba(255, 119, 0, 0.15);
+            padding: 5px 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 119, 0, 0.4);
+        }
+
+        /* Tarjetas */
         .card {
             background: rgba(22, 22, 22, 0.85);
             border: 1px solid rgba(255, 255, 255, 0.12);
@@ -116,10 +139,8 @@
 
         .card-header-logos {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
             padding-bottom: 15px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -146,7 +167,13 @@
             word-break: break-all;
         }
 
-        /* Footer / Contacto */
+        audio {
+            width: 100%;
+            margin-top: 10px;
+            filter: invert(1);
+        }
+
+        /* Footer */
         footer {
             width: 100%;
             max-width: 800px;
@@ -164,7 +191,6 @@
     <!-- Cabecera -->
     <header>
         <img src="logo-homicron.png" alt="Homicron Entertainment" class="logo-main">
-        <!-- Selector funcional de idioma -->
         <select class="lang-select" onchange="changeLanguage(this.value)">
             <option value="en" selected>English ▾</option>
             <option value="es">Español ▾</option>
@@ -183,7 +209,10 @@
         </div>
 
         <!-- SECCIÓN 1: VISUAL STUDIO -->
-        <div class="section-title">Visual Studio</div>
+        <div class="section-header-flex">
+            <div class="section-title">Visual Studio</div>
+            <div class="brand-badge">HOMICRON</div>
+        </div>
         <div class="card">
             <div class="card-header-logos">
                 <img src="logo-visual.png" alt="Visual Studio Logo" class="branch-logo">
@@ -198,18 +227,31 @@
         </div>
 
         <!-- SECCIÓN 2: WRITING LAB -->
-        <div class="section-title">Writing Lab</div>
+        <div class="section-header-flex">
+            <div class="section-title">Writing Lab</div>
+            <div class="brand-badge">SHADOW</div>
+        </div>
         <div class="card">
             <div class="card-header-logos">
                 <img src="logo-writing.png" alt="Writing Lab Logo" class="branch-logo">
             </div>
             <div class="content-box">
                 <p id="writing-desc">Creation of original musical lyrics, lyrical structuring, and conceptual adaptation oriented toward conveying deep emotions and connecting with the audience.</p>
+                <br>
+                <p><strong id="sample-label">Lyric Sample:</strong> BONITA STIRPE</p>
+                <!-- Reproductor de audio directo -->
+                <audio controls>
+                    <source src="BONITA STIRPE.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
             </div>
         </div>
 
         <!-- SECCIÓN 3: SCRIPT & DOCS -->
-        <div class="section-title">Script & Docs</div>
+        <div class="section-header-flex">
+            <div class="section-title">Script & Docs</div>
+            <div class="brand-badge">ACER 79</div>
+        </div>
         <div class="card">
             <div class="card-header-logos">
                 <img src="logo-script.png" alt="Script & Docs Logo" class="branch-logo">
@@ -233,7 +275,7 @@
         <p id="footer-text">&copy; 2026 Homicron Entertainment. All rights reserved.</p>
     </footer>
 
-    <!-- Script para el cambio dinámico de idioma -->
+    <!-- Script de Idioma -->
     <script>
         function changeLanguage(lang) {
             if (lang === 'es') {
@@ -242,6 +284,7 @@
                 document.getElementById('intro-desc2').innerHTML = "<strong>¿Qué hacemos?</strong><br>Nuestra oferta de servicios se divide en tres pilares fundamentales:";
                 document.getElementById('visual-desc').innerText = "Creación y dirección audiovisual, desarrollo de contenido cinematográfico y piezas visuales de alta gama con un estilo estético oscuro, elegante y profesional.";
                 document.getElementById('writing-desc').innerText = "Creación de letras musicales originales, estructuración lírica y adaptación conceptual orientada a transmitir emociones profundas y conectar con la audiencia.";
+                document.getElementById('sample-label').innerText = "Muestra de Letra:";
                 document.getElementById('script-desc').innerText = "Redacción, revisión y estructuración de guiones editoriales y cinematográficos con un enfoque narrativo impecable, organizado y coherente.";
                 document.getElementById('contact-title').innerText = "Contacto:";
                 document.getElementById('contact-text').innerHTML = "¿Listo para llevar tu proyecto al siguiente nivel con precisión lógica y estética profesional?<br><br><strong>Correo / Contacto directo:</strong> acercron@gmail.com";
@@ -252,6 +295,7 @@
                 document.getElementById('intro-desc2').innerHTML = "<strong>What do we do?</strong><br>Our service offering is divided into three core pillars:";
                 document.getElementById('visual-desc').innerText = "Creation and audiovisual direction, development of cinematic content and high-end visual pieces with a dark, elegant, and professional aesthetic style.";
                 document.getElementById('writing-desc').innerText = "Creation of original musical lyrics, lyrical structuring, and conceptual adaptation oriented toward conveying deep emotions and connecting with the audience.";
+                document.getElementById('sample-label').innerText = "Lyric Sample:";
                 document.getElementById('script-desc').innerText = "Drafting, review, and structuring of editorial and cinematic scripts with an impeccable, organized, and coherent narrative approach.";
                 document.getElementById('contact-title').innerText = "Contact:";
                 document.getElementById('contact-text').innerHTML = "Ready to take your project to the next level with logical precision and professional aesthetics?<br><br><strong>Email / Direct Contact:</strong> acercron@gmail.com";
