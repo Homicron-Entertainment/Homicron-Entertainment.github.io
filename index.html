@@ -167,10 +167,19 @@
             word-break: break-all;
         }
 
+        /* Reproductor sin opciones de descarga */
         audio {
             width: 100%;
             margin-top: 10px;
             filter: invert(1);
+        }
+        
+        audio::-webkit-media-controls-enclosure {
+            overflow: hidden;
+        }
+        
+        audio::-webkit-media-controls-panel {
+            width: calc(100% + 30px);
         }
 
         /* Footer */
@@ -239,8 +248,8 @@
                 <p id="writing-desc">Creation of original musical lyrics, lyrical structuring, and conceptual adaptation oriented toward conveying deep emotions and connecting with the audience.</p>
                 <br>
                 <p><strong id="sample-label">Lyric Sample:</strong> BONITA STIRPE</p>
-                <!-- Reproductor de audio directo -->
-                <audio controls>
+                <!-- Reproductor protegido sin descarga -->
+                <audio controls controlsList="nodownload">
                     <source src="BONITA STIRPE.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
