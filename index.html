@@ -4,9 +4,233 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homicron Entertainment</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0b0b;
+            /* Fondo geométrico texturizado con capa oscura superpuesta para legibilidad */
+            background-image: linear-gradient(rgba(11, 11, 11, 0.85), rgba(11, 11, 11, 0.92)), url('fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        /* Cabecera */
+        header {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-main {
+            max-width: 220px;
+            height: auto;
+        }
+
+        .lang-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .lang-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Sección de Introducción */
+        .intro-box {
+            background: rgba(20, 20, 20, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .intro-box h2 {
+            color: #ff7700;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .intro-box p {
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Títulos de Secciones */
+        .section-title {
+            color: #ff7700;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Tarjetas de Secciones / Pilares */
+        .card {
+            background: rgba(22, 22, 22, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 15px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-header-logos {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .branch-logo {
+            max-height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .content-box {
+            background: rgba(10, 10, 10, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 20px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .content-box a {
+            color: #ff9933;
+            text-decoration: underline;
+            word-break: break-all;
+        }
+
+        /* Footer / Contacto */
+        footer {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            padding: 30px 0;
+            color: #888;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Homicron-Entertainment</h1>
-    <p>Official global portfolio of Homicron Entertainment. Cinematic production, lyric composition, and editorial script services.</p>
+
+    <!-- Cabecera -->
+    <header>
+        <!-- Asegúrate de subir tu logo principal como 'logo-homicron.png' -->
+        <img src="logo-homicron.png" alt="Homicron Entertainment" class="logo-main">
+        <button class="lang-btn">English ▾</button>
+    </header>
+
+    <div class="container">
+
+        <!-- Introducción -->
+        <div class="intro-box">
+            <h2>Homicron Entertainment: Pasión, Arte y Precisión Global</h2>
+            <p><strong>¿Qué es Homicron?</strong><br>
+            Homicron Entertainment es una productora y agencia creativa global especializada en el desarrollo de proyectos de alto impacto cultural y comercial. Combinamos una estética cinematográfica rigurosa con una visión artística moderna para dar vida a conceptos únicos en la industria del entretenimiento.</p>
+            <p><strong>¿Qué hacemos?</strong><br>
+            Nuestra oferta de servicios se divide en tres pilares fundamentales:</p>
+        </div>
+
+        <!-- SECCIÓN 1: VISUAL STUDIO -->
+        <div class="section-title">Visual Studio</div>
+        <div class="card">
+            <div class="card-header-logos">
+                <!-- Sube tu logo de visual como 'logo-visual.png' -->
+                <img src="logo-visual.png" alt="Visual Studio Logo" class="branch-logo">
+            </div>
+            <div class="content-box">
+                <p>Creación y dirección audiovisual, desarrollo de contenido cinematográfico y piezas visuales de alta gama con un estilo estético oscuro, elegante y profesional.</p>
+                <br>
+                <p><strong>Demo / Enlaces:</strong><br>
+                <a href="https://youtu.be/yMAC5HfJvhs?si=1EjbAzBd4hbsQnpC" target="_blank">https://youtu.be/yMAC5HfJvhs?si=1EjbAzBd4hbsQnpC</a></p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: WRITING LAB -->
+        <div class="section-title">Writing Lab</div>
+        <div class="card">
+            <div class="card-header-logos">
+                <!-- Sube tu logo de writing como 'logo-writing.png' -->
+                <img src="logo-writing.png" alt="Writing Lab Logo" class="branch-logo">
+            </div>
+            <div class="content-box">
+                <p>Creación de letras musicales originales, estructuración lírica y adaptación conceptual orientada a transmitir emociones profundas y conectar con la audiencia.</p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3: SCRIPT & DOCS -->
+        <div class="section-title">Script & Docs</div>
+        <div class="card">
+            <div class="card-header-logos">
+                <!-- Sube tu logo de script como 'logo-script.png' -->
+                <img src="logo-script.png" alt="Script & Docs Logo" class="branch-logo">
+            </div>
+            <div class="content-box">
+                <p>Redacción, revisión y estructuración de guiones editoriales y cinematográficos con un enfoque narrativo impecable, organizado y coherente.</p>
+            </div>
+        </div>
+
+        <!-- CONTACTO -->
+        <div class="section-title">Contact:</div>
+        <div class="intro-box" style="text-align: left;">
+            <p>¿Listo para llevar tu proyecto al siguiente nivel con precisión lógica y estética profesional?<br><br>
+            <strong>Correo / Contacto directo:</strong> info@homicron.com</p>
+        </div>
+
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 Homicron Entertainment. Todos los derechos reservados.</p>
+    </footer>
+
 </body>
 </html>
